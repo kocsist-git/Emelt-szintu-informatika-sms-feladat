@@ -13,6 +13,22 @@ namespace sms
             //task1();
             //task2();
             task3();
+            task4();
+        }
+
+        private static void task4()
+        {
+            int leghosszabb = 0;
+            string neve = "";
+            foreach (var item in szavak)
+            {
+                if (item.Length > leghosszabb)
+                {
+                    leghosszabb = item.Length;
+                    neve = item;
+                }
+            }
+            Console.WriteLine("\nNegyedik feladat\nA leghosszabb szó: " + neve + "\nHossza: " + leghosszabb + " karakter");
         }
 
         private static void task3()
