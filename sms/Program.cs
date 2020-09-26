@@ -1,14 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace sms
 {
     class Program
     {
         public static string[] betuk = new string[] { "", "", "abc", "dfe", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+        public static List<string> szavak = new List<string>();
         static void Main(string[] args)
         {
-           // task1();
-            task2();
+            //task1();
+            //task2();
+            task3();
+        }
+
+        private static void task3()
+        {
+            StreamReader sr = new StreamReader("szavak.txt");
+            while (!sr.EndOfStream)
+            {
+                szavak.Add(sr.ReadLine());
+            }
         }
 
         private static void task2()
