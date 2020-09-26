@@ -9,21 +9,49 @@ namespace sms
         public static string[] betuk = new string[] { "", "", "abc", "dfe", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
         public static List<string> szavak = new List<string>();
         public static List<string> szamkod = new List<string>();
+        public static ulong[,] kodok = new ulong[600, 2];
         static void Main(string[] args)
         {
-            //task1();
-            //task2();
+            task1();
+            task2();
             task3();
             task4();
             task5();
             task6();
-            //task7();
+            task7();
             task8();
+            task9();
+
+        }
+
+        private static void task9()
+        {
+            ulong legtobb = 0;
+            string legtobbNev = "";
+            ulong kod = 0;
+            for (int i = 0; i < kodok.GetLength(0); i++)
+            {
+                if (kodok[i, 1] > legtobb)
+                {
+                    legtobb = kodok[i, 1];
+                    kod = kodok[i, 0];
+                }
+            }
+
+            Console.WriteLine("\nKilencedik feladat:\n" + kod);
+            for (int i = 0; i < szamkod.Count; i++)
+            {
+                if(szamkod[i]== kod.ToString())
+                {
+                    Console.Write(" " + szavak[i] + ", ");
+                }
+            }
+
         }
 
         private static void task8()
         {
-            ulong[,] kodok = new ulong[600,2];
+            Console.WriteLine("\nNolcadik feladat\n");
             for (int i = 0; i < szamkod.Count; i++)
             {
                 kodok[i, 0] = ulong.Parse(szamkod[i]);
