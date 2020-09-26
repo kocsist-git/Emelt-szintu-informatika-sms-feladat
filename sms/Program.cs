@@ -14,6 +14,19 @@ namespace sms
             //task2();
             task3();
             task4();
+            task5();
+        }
+
+        private static void task5()
+        {
+            List<string> rovidszo = new List<string>();
+
+            foreach (var item in szavak)
+            {
+                if (item.Length <= 5) rovidszo.Add(item);
+            }
+
+            Console.WriteLine("\nÖtödik feladat\nRövid szavak száma: " + rovidszo.Count);
         }
 
         private static void task4()
