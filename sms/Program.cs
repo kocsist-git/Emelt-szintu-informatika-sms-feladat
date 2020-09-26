@@ -8,6 +8,7 @@ namespace sms
     {
         public static string[] betuk = new string[] { "", "", "abc", "dfe", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
         public static List<string> szavak = new List<string>();
+        public static List<string> szamkod = new List<string>();
         static void Main(string[] args)
         {
             //task1();
@@ -16,11 +17,29 @@ namespace sms
             task4();
             task5();
             task6();
+            task7();
+            task8();
+        }
+
+        private static void task8()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void task7()
+        {
+            Console.Write("\nHetedik feladat\nKérek egy számsort: ");
+            int szamsor = int.Parse(Console.ReadLine());
+            Console.WriteLine("\nEzek a szók tartoznak hozzá");
+            for (int i = 0; i < szamkod.Count; i++)
+            {
+                if (szamsor.ToString() == szamkod[i]) Console.WriteLine(szavak[i]);
+            }        
         }
 
         private static void task6()
         {
-            List<string> szamkod = new List<string>();
+           
             
             for (int j = 0; j < szavak.Count; j++)
             {
