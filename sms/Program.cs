@@ -17,13 +17,46 @@ namespace sms
             task4();
             task5();
             task6();
-            task7();
+            //task7();
             task8();
         }
 
         private static void task8()
         {
-            throw new NotImplementedException();
+            ulong[,] kodok = new ulong[600,2];
+            for (int i = 0; i < szamkod.Count; i++)
+            {
+                kodok[i, 0] = ulong.Parse(szamkod[i]);
+                kodok[i, 1] = 1;
+            }
+
+            for (int i = 0; i <550; i++)
+            {
+                for (int j = i+1; j < 550; j++)
+                {
+                    if (kodok[i, 0] == 0) continue;
+                    if (kodok[i, 0] == kodok[j, 0])
+                    {
+                        kodok[i, 1]++;
+                        kodok[j, 1] = kodok[i, 1];
+                    }
+                }
+            }
+
+            int temp = 0;
+            for (int i = 0; i < 550; i++)
+            {
+                if (kodok[i, 1] >= 2)
+                {
+                    Console.Write(kodok[i, 0] + " : " + szavak[i] + "; ");
+                    temp++;
+                }
+                if (temp > 15)
+                {
+                    Console.WriteLine();
+                    temp = 0;
+                }
+            }
         }
 
         private static void task7()
