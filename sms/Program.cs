@@ -15,6 +15,38 @@ namespace sms
             task3();
             task4();
             task5();
+            task6();
+        }
+
+        private static void task6()
+        {
+            List<string> szamkod = new List<string>();
+            
+            for (int j = 0; j < szavak.Count; j++)
+            {
+                string szamsor = "";
+                for (int k = 0; k < szavak[j].Length; k++)
+                {
+                    for (int i = 2; i < betuk.Length; i++)
+                    {
+                        if (betuk[i].Contains(szavak[j][k]))
+                        {
+                            szamsor += i;
+                        }
+                    }
+                }
+                szamkod.Add(szamsor);                
+            }
+
+            StreamWriter sw = new StreamWriter("kodok.txt");
+            foreach (var item in szamkod)
+            {
+                sw.WriteLine(item);
+            }
+
+            sw.Flush();
+            sw.Close();         
+
         }
 
         private static void task5()
